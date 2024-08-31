@@ -1,0 +1,57 @@
+[
+    {
+        "id": "1",
+        "name": "Project 1",
+        "author": "Abir Hasan",
+        "short_details": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "company": "Deelko",
+        "description": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "banner": "https://i.ibb.co/m6YTzhw/project-1.jpg",
+        "publish_at": "2024-08-29",
+        "updated_at": "2024-08-01"
+    },
+    {
+        "id": "2",
+        "name": "Project 2",
+        "author": "Mr. XYZ",
+        "short_details": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "company": "Test Company",
+        "description": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "banner": "https://i.ibb.co/mCQyBk3/project-2.jpg",
+        "publish_at": "2024-08-29",
+        "updated_at": "2024-08-01"
+    },
+    {
+        "id": "3",
+        "name": "Project 3",
+        "author": "Mr. XYZ",
+        "short_details": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "company": "Test Company",
+        "description": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "banner": "https://i.ibb.co/mCQyBk3/project-2.jpg",
+        "publish_at": "2024-08-29",
+        "updated_at": "2024-08-01"
+    },
+    {
+        "id": "4",
+        "name": "Project 4",
+        "author": "Mr. XYZ",
+        "short_details": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "company": "Test Company",
+        "description": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "banner": "https://i.ibb.co/mCQyBk3/project-2.jpg",
+        "publish_at": "2024-08-29",
+        "updated_at": "2024-08-01"
+    },
+    {
+        "id": "5",
+        "name": "Project 5",
+        "author": "Mr. XYZ",
+        "short_details": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "company": "Test Company",
+        "description": "<p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p><p class=\"pt-3\" style=\"font-size: 19px;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo veniam fugit! Sunt impedit aperiam molestias hic? Reprehenderit, nulla. Cupiditate enim aliquid consectetur voluptatum iusto?</p>",
+        "banner": "https://i.ibb.co/mCQyBk3/project-2.jpg",
+        "publish_at": "2024-08-29",
+        "updated_at": "2024-08-01"
+    }
+]
