@@ -20,5 +20,9 @@ Route::get('/', function () {
 
 // login
 Route::get('/login', [UserController::class, 'index'])->name('login');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/register', [UserController::class, 'create'])->name('register');
+Route::post('/register', [UserController::class, 'store'])->name('register.create');
+Route::post('/login', [UserController::class, 'login'])->name('user.login');
 
+Route::get('/profile', [UserController::class, 'show'])->middleware('auth')->name('profile');

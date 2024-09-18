@@ -4,7 +4,7 @@
 <section class="h-full">
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <a href="{{route('home')}}" class="text-center text-6xl font-bold text-gray-900">
+            <a href="{{ route('home') }}" class="text-center text-6xl font-bold text-gray-900">
                 <h1>Barta</h1>
             </a>
             <h1 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -13,24 +13,37 @@
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="#" method="POST">
+            @if (session('success'))
+                <div class="bg-green-500 text-white p-4 rounded-md mb-4">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <form class="space-y-6" action="{{ route('register.create') }}" method="POST">
+                @csrf
                 <!-- First Name -->
                 <div>
                     <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First Name</label>
                     <div class="mt-2">
                         <input id="first_name" name="first_name" type="text" autocomplete="first_name"
-                            placeholder="Muhammad" required
+                            placeholder="First Name" value="{{ old('first_name') }}"
                             class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+                        @error('first_name')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
-                <!-- First Name -->
+                <!-- Last Name -->
                 <div>
                     <label for="last_name" class="block text-sm font-medium leading-6 text-gray-900">Last Name</label>
                     <div class="mt-2">
                         <input id="last_name" name="last_name" type="text" autocomplete="last_name"
-                            placeholder="Alp Arslan" required
+                            placeholder="Last Name" value="{{ old('last_name') }}"
                             class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+                        @error('last_name')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -40,18 +53,24 @@
                         address</label>
                     <div class="mt-2">
                         <input id="email" name="email" type="email" autocomplete="email"
-                            placeholder="alp.arslan@mail.com" required
+                            placeholder="example@gmail.com" value="{{ old('email') }}"
                             class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+                        @error('email')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
                 <!-- Password -->
                 <div>
-                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password <small>(Min-len: 4)</small></label>
                     <div class="mt-2">
                         <input id="password" name="password" type="password" autocomplete="current-password"
-                            placeholder="••••••••" required
-                            class="block w-full rounded-md border-0 p-2 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+                            placeholder="••••••••"
+                            class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+                        @error('password')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -63,9 +82,10 @@
                 </div>
             </form>
 
+
             <p class="mt-10 text-center text-sm text-gray-500">
                 Already a member?
-                <a href="{{route('login')}}" class="font-semibold leading-6 text-black hover:text-black">Sign In</a>
+                <a href="{{ route('login') }}" class="font-semibold leading-6 text-black hover:text-black">Sign In</a>
             </p>
         </div>
     </div>
