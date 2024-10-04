@@ -32,11 +32,21 @@ class postController extends Controller
     {
         $request->validate([
             'contents' => 'required|string|max:500',
+            'picture' => 'image|mimes:png,jpg,jpeg|max:2048',
         ]);
+
+        $path = "";
+
+        if($request->hasFile('picture')){
+            $file = $request->file('picture');
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('uploads/post', $fileName, 'public');
+        }
 
         $result = Post::create([
             'contents' => $request->input('contents'),
             'user_id'  => Auth::id(),
+            'picture' => $path
         ]);
 
         if ($result) {
@@ -83,6 +93,7 @@ class postController extends Controller
     {
         $request->validate([
             'contents' => 'required|string',
+            'picture' => 'image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
         $post = Post::find($id);
@@ -91,8 +102,20 @@ class postController extends Controller
             return response()->json(['message' => 'Post not found.'], 404);
         }
 
+        $path = "";
+
+        if($request->hasFile('picture')){
+            $file = $request->file('picture');
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('uploads/post', $fileName, 'public');
+        }
+
         // Update the post's contents
         $post->contents = $request->input('contents');
+
+        if("" != $path){
+            $post->picture = $path;
+        }
 
         if ($post->save()) {
             return redirect()->back()->with('success', 'Post updated successfully!');

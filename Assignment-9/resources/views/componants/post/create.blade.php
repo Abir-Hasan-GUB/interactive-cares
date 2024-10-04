@@ -9,7 +9,7 @@ class="bg-white border-2 border-black rounded-lg shadow mx-auto max-w-none px-4 
     <div class="flex items-start /space-x-3/">
         <!-- User Avatar -->
         <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full object-cover" src="https://i.ibb.co.com/R0fNK6K/profile.png"
+            <img class="h-10 w-10 rounded-full object-cover" src="{{ProfilePicture($user->id)}}"
                 alt="Mr. User" />
         </div>
         <!-- /User Avatar -->
@@ -30,7 +30,7 @@ class="bg-white border-2 border-black rounded-lg shadow mx-auto max-w-none px-4 
         <div class="flex gap-4 text-gray-600">
             <!-- Upload Picture Button -->
             <div>
-                <input type="file" name="picture" id="picture" class="hidden" />
+                <input type="file" name="picture" id="picture" class="hidden" support="" />
 
                 <label for="picture"
                     class="-m-2 flex gap-2 text-xs items-center rounded-full p-2 text-gray-600 hover:text-gray-800 cursor-pointer">

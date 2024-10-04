@@ -9,7 +9,7 @@
                     <div class="flex items-center space-x-3">
                         <!-- User Avatar -->
                         <div class="flex-shrink-0">
-                            <img class="h-10 w-10 rounded-full object-cover" src="https://i.ibb.co.com/q98Q8ZR/man.png"
+                            <img class="h-10 w-10 rounded-full object-cover" src="{{profilePicture($post->user_id)}}"
                                 alt="Al Nat" />
                         </div>
                         <!-- /User Avatar -->
@@ -69,11 +69,18 @@
                 </div>
             </header>
             <!-- Content -->
-            <a href="{{ route('post.show', ['id' => $post->id]) }}">
-                <div class="py-4 text-gray-700 font-normal">
-                    {{ $post->contents }}
-                </div>
-            </a>
+            <div class="py-4 text-gray-700 font-normal space-y-2">
+                <!-- Content -->
+                <a href="{{ route('post.show', ['id' => $post->id]) }}">
+                    @if ($post->picture)
+                        <img src="{{ asset('storage/' . $post->picture) }}"
+                            class="min-h-auto w-full rounded-lg object-cover max-h-64 md:max-h-72" alt="">
+                    @endif
+                    <div class="py-4 text-gray-700 font-normal">
+                        {{ $post->contents }}
+                    </div>
+                </a>
+            </div>
 
             <!-- Date Created & View Stat -->
             <div class="flex items-center gap-2 text-gray-500 text-xs my-2">

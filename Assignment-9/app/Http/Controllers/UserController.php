@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\User;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function show(string $id = null)
     {
-        $user = User::find(Auth::id());
+        $user    = User::find(Auth::id());
         $profile = $user->profile;
 
         $posts = Post::where('user_id', Auth::id())->get();
@@ -72,10 +72,8 @@ class UserController extends Controller
      */
     public function edit(Request $request)
     {
-        $user = User::find(Auth::id());
-        $profile = $user->profile;
-        // return "True";
-        return view('pages.edit_profile', compact('user', 'profile'));
+        $user    = User::find(Auth::id());
+        return view('pages.edit_profile', compact('user'));
     }
 
     /**
@@ -83,18 +81,18 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        // Validate the incoming request data
         $request->validate([
             'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'bio' => 'required|string',
+            'last_name'  => 'required|string',
+            'bio'        => 'required|string',
+            'avater'     => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
         $user = User::find(Auth::id());
 
         // Update first_name and last_name in the users table
         $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
+        $user->last_name  = $request->input('last_name');
         $user->save();
 
         // Check if the user has a profile
@@ -102,18 +100,24 @@ class UserController extends Controller
 
         // If no profile exists, create one
         if (!$profile) {
-            $profile = new Profile();
+            $profile          = new Profile();
             $profile->user_id = $user->id;
         }
 
         // Update the bio in the profiles table
         $profile->bio = $request->input('bio');
+
+        if ($request->hasFile('avatar')) {
+            $file            = $request->file('avatar');
+            $fileName        = uniqid() . '.' . $file->getClientOriginalExtension();
+            $path            = $file->storeAs('uploads/avatar', $fileName, 'public');
+            $profile->avatar = $path;
+        }
+
         $profile->save();
 
         return redirect()->back()->with('info', 'Profile updated successfully!');
     }
-
-
 
     /**
      * Remove the specified resource from storage.

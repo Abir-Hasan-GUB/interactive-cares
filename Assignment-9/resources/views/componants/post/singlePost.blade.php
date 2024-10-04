@@ -8,7 +8,7 @@
                     <!-- User Avatar -->
                     <div class="flex-shrink-0">
                         <img class="h-10 w-10 rounded-full object-cover"
-                            src="https://i.ibb.co.com/R0fNK6K/profile.png" alt="Tony Stark" />
+                            src="{{profilePicture($postUser->id)}}" alt="Tony Stark" />
                     </div>
                     <!-- /User Avatar -->
 
@@ -51,12 +51,16 @@
                             tabindex="-1">
                             <a href="{{ route('post.edit', ['id' => $post->id]) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                 role="menuitem" tabindex="-1" id="user-menu-item-0">Edit</a>
-                                <form action="{{ route('post.delete', ['id' => $post->id]) }}" id="deletePostForm" onsubmit="return confirmDelete();" method="POST">
+                                {{-- <form action="{{ route('post.delete', ['id' => $post->id]) }}" id="deletePostForm"
+                                    method="POST">
                                     @csrf
-                                    <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">
+                                    <button type="button"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem" tabindex="-1" id="user-menu-item-1"
+                                        onclick="confirmAction('Are you sure?', 'Once deleted, you will not be able to recover this item!', 'deletePostForm')">
                                         Delete
                                     </button>
-                                </form>
+                                </form> --}}
 
                         </div>
                     </div>
@@ -67,8 +71,17 @@
         </header>
 
         <!-- Content -->
-        <div class="py-4 text-gray-700 font-normal">
-            {{$post->contents}}
+        <div class="py-4 text-gray-700 font-normal space-y-2">
+            <!-- Content -->
+            <a href="{{ route('post.show', ['id' => $post->id]) }}">
+                @if ($post->picture)
+                    <img src="{{ asset('storage/' . $post->picture) }}"
+                        class="min-h-auto w-full rounded-lg object-cover max-h-64 md:max-h-72" alt="">
+                @endif
+                <div class="py-4 text-gray-700 font-normal">
+                    {{ $post->contents }}
+                </div>
+            </a>
         </div>
 
         <!-- Date Created & View Stat -->
@@ -289,8 +302,3 @@
     </div>
 </section>
 
-<script>
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete this post?");
-    }
-</script>

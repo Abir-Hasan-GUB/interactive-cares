@@ -32,7 +32,7 @@
                 {{-- @if ()
 
                 @endif --}}
-                <div class="flex flex-shrink-0 self-center" x-data="{ open: false }">
+                {{-- <div class="flex flex-shrink-0 self-center" x-data="{ open: false }">
                     <div class="relative inline-block text-left">
                         <div>
                             <button @click="open = !open" type="button"
@@ -51,20 +51,29 @@
                             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                             tabindex="-1">
-                            {{-- <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                role="menuitem" tabindex="-1" id="user-menu-item-0">Edit</a> --}}
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                role="menuitem" tabindex="-1" id="user-menu-item-0">Edit</a>
                             <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                 role="menuitem" tabindex="-1" id="user-menu-item-1">Delete</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /Card Action Dropdown -->
             </div>
         </header>
 
         <!-- Content -->
-        <div class="py-4 text-gray-700 font-normal">
-            {{$post->contents}}
+        <div class="py-4 text-gray-700 font-normal space-y-2">
+            <!-- Content -->
+            <a href="{{ route('post.show', ['id' => $post->id]) }}">
+                @if ($post->picture)
+                    <img src="{{ asset('storage/' . $post->picture) }}"
+                        class="min-h-auto w-full rounded-lg object-cover max-h-64 md:max-h-72" alt="">
+                @endif
+                <div class="py-4 text-gray-700 font-normal">
+                    {{ $post->contents }}
+                </div>
+            </a>
         </div>
 
         <!-- Date Created & View Stat -->
