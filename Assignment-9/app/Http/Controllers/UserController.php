@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,9 +30,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
-        // dd($request->all());
-
         $request->validate([
             'first_name' => 'required|string',
             'last_name'  => 'required|string',
@@ -41,17 +37,20 @@ class UserController extends Controller
             'password'   => 'required|string|min:4',
         ]);
 
-        // Create user if validation passes
-        User::create([
+        // Create the user and get the instance
+        $user = User::create([
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
             'email'      => $request->email,
             'password'   => bcrypt($request->password),
-            // 'password'   => $request->password,
         ]);
 
-        // Redirect with success message
-        return redirect()->back()->with('success', 'User registered successfully!');
+        // Now you can use $user->id to get the user ID
+        Profile::create([
+            'user_id' => $user->id,
+        ]);
+
+        return redirect()->route('login')->with('success', 'User registered successfully!');
     }
 
     /**
@@ -59,20 +58,19 @@ class UserController extends Controller
      */
     public function show(string $id = null)
     {
-        $user    = User::find(Auth::id());
-        $profile = $user->profile;
-
-        $posts = Post::where('user_id', Auth::id())->get();
-
-        return view('pages.profile', compact('user', 'profile', 'posts'));
+        $user = User::find($id);
+        return view('pages.profile', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
-        $user    = User::find(Auth::id());
+        $user = User::find($id);
+        if ($user->id != Auth::id()) {
+            return abort(401, 'Access Denaied!');
+        }
         return view('pages.edit_profile', compact('user'));
     }
 
@@ -84,8 +82,10 @@ class UserController extends Controller
         $request->validate([
             'first_name' => 'required|string',
             'last_name'  => 'required|string',
-            'bio'        => 'required|string',
-            'avater'     => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            'bio'        => 'string|nullable',
+            'avater'     => 'image|mimes:png,jpg,jpeg|max:2048|nullable',
+            'username'   => 'nullable|string|max:20|unique:users,username|regex:/^[a-zA-Z0-9]+$/',
+            'password'   => 'string|min:4',
         ]);
 
         $user = User::find(Auth::id());
@@ -93,18 +93,18 @@ class UserController extends Controller
         // Update first_name and last_name in the users table
         $user->first_name = $request->input('first_name');
         $user->last_name  = $request->input('last_name');
+
+        if (Auth::user()->username == null) {
+            $user->username = '@' . $request->username;
+        }
+
+        if($request->password != ''){
+            $user->password = bcrypt($request->ipassword);
+        }
         $user->save();
 
         // Check if the user has a profile
-        $profile = $user->profile;
-
-        // If no profile exists, create one
-        if (!$profile) {
-            $profile          = new Profile();
-            $profile->user_id = $user->id;
-        }
-
-        // Update the bio in the profiles table
+        $profile      = $user->profile;
         $profile->bio = $request->input('bio');
 
         if ($request->hasFile('avatar')) {
@@ -141,7 +141,7 @@ class UserController extends Controller
             $request->session()->regenerate();
 
             // Flash success message to the session
-            return redirect()->route('profile')->with('success', 'User login successfully!');
+            return redirect()->route('home')->with('success', 'User login successfully!');
         }
 
         // If authentication fails, redirect back with error messages

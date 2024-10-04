@@ -2,7 +2,7 @@
 <section id="newsfeed" class="space-y-6">
     <!-- Barta Card -->
 
-    @foreach ($posts as $post)
+    @foreach ($user->posts as $post)
         <article class="bg-white border-2 border-black rounded-lg shadow mx-auto max-w-none px-4 py-5 sm:px-6">
             <!-- Barta Card Top -->
             <header>
@@ -17,12 +17,14 @@
 
                         <!-- User Info -->
                         <div class="text-gray-900 flex flex-col min-w-0 flex-1">
-                            <a href="profile.html" class="hover:underline font-semibold line-clamp-1">
+                            <a href="{{ route('profile', ['id' => $user->id]) }}"
+                                class="hover:underline font-semibold line-clamp-1">
                                 {{ $user->first_name }} {{ $user->last_name }}
                             </a>
 
-                            <a href="profile.html" class="hover:underline text-sm text-gray-500 line-clamp-1">
-                                @test_upcomming
+                            <a href="{{ route('profile', ['id' => $user->id]) }}"
+                                class="hover:underline text-sm text-gray-500 line-clamp-1">
+                                {{ $user->username ?? '' }}
                             </a>
                         </div>
                         <!-- /User Info -->
@@ -126,4 +128,3 @@
     <!-- /Barta Card With Image -->
 </section>
 <!-- /Newsfeed -->
-

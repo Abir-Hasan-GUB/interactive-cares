@@ -16,12 +16,12 @@
 
                         <!-- User Info -->
                         <div class="text-gray-900 flex flex-col min-w-0 flex-1">
-                            <a href="profile.html" class="hover:underline font-semibold line-clamp-1">
+                            <a href="{{route('profile', ['id' => $post->user_id])}}" class="hover:underline font-semibold line-clamp-1">
                                 {{ $post->user->first_name }} {{ $post->user->last_name }}
                             </a>
 
-                            <a href="profile.html" class="hover:underline text-sm text-gray-500 line-clamp-1">
-                                @alnat
+                            <a href="{{route('profile', ['id' => $post->user_id])}}" class="hover:underline text-sm text-gray-500 line-clamp-1">
+                                {{$post->user->username ?? ''}}
                             </a>
                         </div>
                         <!-- /User Info -->

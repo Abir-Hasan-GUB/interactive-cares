@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class postController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,21 +32,21 @@ class postController extends Controller
     {
         $request->validate([
             'contents' => 'required|string|max:500',
-            'picture' => 'image|mimes:png,jpg,jpeg|max:2048',
+            'picture'  => 'image|mimes:png,jpg,jpeg|max:2048|nullable',
         ]);
 
         $path = "";
 
-        if($request->hasFile('picture')){
-            $file = $request->file('picture');
+        if ($request->hasFile('picture')) {
+            $file     = $request->file('picture');
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('uploads/post', $fileName, 'public');
+            $path     = $file->storeAs('uploads/post', $fileName, 'public');
         }
 
         $result = Post::create([
             'contents' => $request->input('contents'),
             'user_id'  => Auth::id(),
-            'picture' => $path
+            'picture'  => $path,
         ]);
 
         if ($result) {
@@ -93,7 +93,7 @@ class postController extends Controller
     {
         $request->validate([
             'contents' => 'required|string',
-            'picture' => 'image|mimes:png,jpg,jpeg|max:2048',
+            'picture'  => 'image|mimes:png,jpg,jpeg|max:2048|nullable',
         ]);
 
         $post = Post::find($id);
@@ -104,16 +104,16 @@ class postController extends Controller
 
         $path = "";
 
-        if($request->hasFile('picture')){
-            $file = $request->file('picture');
+        if ($request->hasFile('picture')) {
+            $file     = $request->file('picture');
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs('uploads/post', $fileName, 'public');
+            $path     = $file->storeAs('uploads/post', $fileName, 'public');
         }
 
         // Update the post's contents
         $post->contents = $request->input('contents');
 
-        if("" != $path){
+        if ("" != $path) {
             $post->picture = $path;
         }
 
@@ -141,5 +141,4 @@ class postController extends Controller
             return redirect()->back()->with('error', 'Post Deletion Failed!');
         }
     }
-
 }

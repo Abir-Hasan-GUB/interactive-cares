@@ -99,4 +99,7 @@ class="bg-white border-2 border-black rounded-lg shadow mx-auto max-w-none px-4 
 <!-- /Create Post Card Bottom -->
 </form>
 @endauth
- <!-- /Barta Create Post Card -->
+
+
+
+

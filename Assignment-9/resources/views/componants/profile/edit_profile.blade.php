@@ -58,6 +58,9 @@ class="container max-w-xl mx-auto space-y-8 mt-8 px-2 md:px-0 min-h-screen">
                 autocomplete="given-name"
                 value="{{$user->first_name}}"
                 class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" />
+                @error('first_name')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
           </div>
 
@@ -75,6 +78,9 @@ class="container max-w-xl mx-auto space-y-8 mt-8 px-2 md:px-0 min-h-screen">
                value="{{$user->last_name}}"
                 autocomplete="family-name"
                 class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" />
+                @error('last_name')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
           </div>
 
@@ -91,7 +97,41 @@ class="container max-w-xl mx-auto space-y-8 mt-8 px-2 md:px-0 min-h-screen">
                 type="email"
                 autocomplete="email"
                value="{{$user->email}}"
-                class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" readonly />
+                class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" readonly disabled />
+
+                @error('email')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+          </div>
+
+          <div class="col-span-full">
+
+
+            <label
+              for="username"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Username
+              <span class="text-red-700 ml-1" role="alert">
+                (
+                <strong class="font-bold">Warning!</strong>
+                <span class="block sm:inline">You can change this once only!</span>
+                )
+            </span>
+              </label
+            >
+            <div class="mt-2">
+              <input
+                id="username"
+                name="username"
+                placeholder="Username"
+                autocomplete="off"
+                type="text"
+               value="{{$user->username ?? ''}}"
+                class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" {{$user->username ? 'disabled' : ''}} />
+                @error('username')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
           </div>
 
@@ -107,7 +147,11 @@ class="container max-w-xl mx-auto space-y-8 mt-8 px-2 md:px-0 min-h-screen">
                 name="password"
                 id="password"
                 autocomplete="password"
+                placeholder="*******"
                 class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" />
+                @error('password')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
           </div>
         </div>
@@ -128,6 +172,9 @@ class="container max-w-xl mx-auto space-y-8 mt-8 px-2 md:px-0 min-h-screen">
               placeholder="Write Your Bio..!"
               class="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">{{$user->profile->bio ?? ""}}</textarea
             >
+            @error('bio')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
           </div>
           <p class="mt-3 text-sm leading-6 text-gray-600">
             Write a few sentences about yourself.

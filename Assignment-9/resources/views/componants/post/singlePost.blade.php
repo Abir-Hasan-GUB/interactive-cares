@@ -14,12 +14,12 @@
 
                     <!-- User Info -->
                     <div class="text-gray-900 flex flex-col min-w-0 flex-1">
-                        <a href="profile.html" class="hover:underline font-semibold line-clamp-1">
+                        <a href="{{route('profile', ['id' => $postUser->id])}}" class="hover:underline font-semibold line-clamp-1">
                             {{$postUser->first_name}}   {{$postUser->last_name}}
                         </a>
 
-                        <a href="profile.html" class="hover:underline text-sm text-gray-500 line-clamp-1">
-                            @upcomming...
+                        <a href="{{route('profile', ['id' => $postUser->id])}}" class="hover:underline text-sm text-gray-500 line-clamp-1">
+                            {{$postUser->username ?? ""}}
                         </a>
                     </div>
                     <!-- /User Info -->
@@ -51,16 +51,6 @@
                             tabindex="-1">
                             <a href="{{ route('post.edit', ['id' => $post->id]) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                 role="menuitem" tabindex="-1" id="user-menu-item-0">Edit</a>
-                                {{-- <form action="{{ route('post.delete', ['id' => $post->id]) }}" id="deletePostForm"
-                                    method="POST">
-                                    @csrf
-                                    <button type="button"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem" tabindex="-1" id="user-menu-item-1"
-                                        onclick="confirmAction('Are you sure?', 'Once deleted, you will not be able to recover this item!', 'deletePostForm')">
-                                        Delete
-                                    </button>
-                                </form> --}}
 
                         </div>
                     </div>
@@ -96,6 +86,8 @@
         <hr class="my-6" />
 
         <!-- Barta Create Comment Form -->
+
+        @auth
         <form action="" method="POST">
             <!-- Create Comment Card Top -->
             <div>
@@ -103,7 +95,7 @@
                     <!-- User Avatar -->
                     <div class="flex-shrink-0">
                         <img class="h-10 w-10 rounded-full object-cover"
-                            src="https://i.ibb.co.com/R0fNK6K/profile.png" alt="Ahmed Shamim" />
+                            src="{{ProfilePicture(Auth::id())}}" alt="Ahmed Shamim" />
                     </div>
                     <!-- /User Avatar -->
 
@@ -134,6 +126,16 @@
             </div>
             <!-- /Create Comment Card Bottom -->
         </form>
+        @endauth
+
+        @guest
+        <blockquote class="border-l-4 border-gray-800 bg-blue-50 p-4 text-gray-700 italic">
+            <p>Login to post comments</p>
+        </blockquote>
+    @endguest
+
+
+
         <!-- /Barta Create Comment Form -->
 
         <!-- /Barta Card Bottom -->
@@ -142,10 +144,10 @@
 
     <hr />
     <div class="flex flex-col space-y-6">
-        <h1 class="text-lg font-semibold">Comments (3)</h1>
+        <h1 class="text-lg font-semibold">Comments (3) Upcomming</h1>
 
         <!-- Barta User Comments Container -->
-        <article
+        {{-- <article
             class="bg-white border-2 border-black rounded-lg shadow mx-auto max-w-none px-4 py-2 sm:px-6 min-w-full divide-y">
             <!-- Comments -->
 
@@ -297,7 +299,7 @@
             <!-- /Comment 3 -->
 
             <!-- /Comments -->
-        </article>
+        </article> --}}
         <!-- /Barta User Comments -->
     </div>
 </section>
