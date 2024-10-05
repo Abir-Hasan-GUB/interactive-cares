@@ -11,7 +11,7 @@ class="bg-white border-2 border-black rounded-lg shadow mx-auto max-w-none px-4 
     <div class="flex items-start /space-x-3/">
         <!-- User Avatar -->
         <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full object-cover" src="{{ProfilePicture($user->id)}}"
+            <img class="h-10 w-10 rounded-full object-cover" src="{{ProfilePicture($post->user_id)}}"
                 alt="Mr. User" />
         </div>
         <!-- /User Avatar -->
