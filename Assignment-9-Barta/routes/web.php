@@ -21,7 +21,7 @@ Route::get('/profile/{id}', [UserController::class, 'show'])->name('profile');
 Route::get('/profile/edit/{id}', [UserController::class, 'edit'])->middleware('auth')->name('profile.edit');
 Route::post('/profile/update', [UserController::class, 'update'])->middleware('auth')->name('profile.update');
 
-// Post controll here
+// Post control here
 Route::post('/post/create', [PostController::class, 'store'])->middleware('auth')->name('post.create');
 Route::get('/post/view/{id}', [PostController::class, 'show'])->name('post.show');
 Route::get('/post/edit/{id}', [PostController::class, 'edit'])->middleware('auth')->name('post.edit');
