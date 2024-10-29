@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Models\Url;
 use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, ValidatesRequests;
+    public function index($short_url)
+    {
+        $full_url = Url::where('short_url', $short_url)->value('full_url');
+
+        if (!$full_url) {
+            return response()->json(["message" => "URL not found."], 404);
+        }
+
+        return redirect()->to($full_url);
+    }
 }
