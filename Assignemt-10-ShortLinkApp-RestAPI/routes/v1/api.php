@@ -32,5 +32,5 @@ Route::post('register', [AuthController::class, 'register'])
 Route::post('create-url', [UrlController::class, 'create_url'])
     ->middleware('auth:sanctum')->name('create_url');
 
-Route::get('all-urls/{id}', [UrlController::class, 'all_urls'])
+Route::get('all-urls', [UrlController::class, 'all_urls'])
     ->middleware('auth:sanctum')->name('all_urls');

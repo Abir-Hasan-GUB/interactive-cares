@@ -6,6 +6,7 @@ use App\Http\Requests\UrlRequest;
 use App\Models\CommonUrl;
 use App\Models\Url;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UrlController extends Controller
@@ -80,13 +81,25 @@ class UrlController extends Controller
     }
 
 
-    public function all_urls($id)
+    public function all_urls(Request $request)
     {
-        return User::find($id)->urls->map(function ($url) {
+        return $request->user()->urls->map(function ($url) {
             return [
                 'id' => $url->id,
                 'short_url' => env('APP_URL') . '/' . $url->short_url,
                 'main_url' => $url->full_url
+            ];
+        });
+    }
+
+    public function all_urls_with_visit_count(Request $request)
+        {
+        return $request->user()->urls->map(function ($url) {
+            return [
+                'id' => $url->id,
+                'short_url' => env('APP_URL') . '/' . $url->short_url,
+                'main_url' => $url->full_url,
+                'visit_count' => $url->visit_count
             ];
         });
     }
